@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Tesseract from "tesseract.js";
 import { Document, Packer, Paragraph } from "docx";
 import { saveAs } from "file-saver";
+import { FaGithub } from "react-icons/fa";
 import "./App.css";
 
 function App() {
   const [img, setImg] = useState("");
-  const [text, setText] = useState("");
+  const [text, setText] = useState(localStorage.getItem("text") || "");
+  const [isExtracted, setIsExtracted] = useState(false);
+
+  useEffect(() => {
+    const storedText = localStorage.getItem("text");
+
+    if (storedText) setText(storedText);
+  }, []);
 
   const handleChange = (e) => {
-    setImg(URL.createObjectURL(e.target.files[0]));
+    localStorage.removeItem("text");
+
+    const newImg = URL.createObjectURL(e.target.files[0]);
+
+    setImg(newImg);
+    setIsExtracted(false);
   };
 
   const saveAsWordFile = () => {
@@ -28,18 +41,33 @@ function App() {
     });
   };
 
+  const handleDelete = () => {
+    setText("");
+    setIsExtracted(false);
+
+    localStorage.removeItem("text");
+  };
+
   const handleClick = () => {
     Tesseract.recognize(img, "eng", {
       logger: (m) => console.log(m),
     })
       .catch((err) => console.error(err))
       .then((result) => {
-        setText(result.data.text);
+        const extractedText = result.data.text;
+
+        setText(extractedText);
+        setIsExtracted(true);
+
+        localStorage.setItem("text", extractedText); // Store extracted text
       });
   };
 
   return (
     <div className="App">
+      <a href="https://github.com/killmong/imgToText">
+        <FaGithub className="github-icon" />
+      </a>
       <main className="App-main">
         <h3>Upload the Image</h3>
         <div>
@@ -47,15 +75,35 @@ function App() {
           <input type="file" id="img" onChange={handleChange} />
           {img && <img src={img} className="App-logo" alt="logo" />}
         </div>
-        <button onClick={handleClick}>Extract text</button>
+        <button className="success" onClick={handleClick}>
+          Extract text
+        </button>
 
         <h3>Extracted text</h3>
       </main>
       <div className="text-box">
-        <p> {text} </p>
+        {isExtracted == true && (
+          <div className="dog-container">
+            <img
+              className="dog-animation"
+              src="freepik__background__73602.png"
+              alt="Dog Animation"
+            />
+          </div>
+        )}
+        <p>{text}</p>
 
-        {text && <button onClick={saveAsWordFile}>Save as Word file</button>}
-      </div>{" "}
+        {text && (
+          <button className="success" onClick={saveAsWordFile}>
+            Save as Word file
+          </button>
+        )}
+        {text && (
+          <button className="delete" onClick={handleDelete}>
+            Delete!
+          </button>
+        )}
+      </div>
     </div>
   );
 }
