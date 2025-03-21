@@ -1,0 +1,137 @@
+/* Background styling */
+body {
+  background-color: #8bc6ec;
+  background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main app container styling */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Main card styling */
+.App-main {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-width: 600px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Main heading */
+.App-main h3 {
+  font-size: 42px;
+  color: #fff7d1;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.App-main h3:hover {
+  color: #ffeb3b;
+}
+
+/* Image styling */
+.App-main img {
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.App-main img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Label styling */
+label {
+  font-size: 20px;
+  color: #ffeb3b;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Input field */
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 20px;
+  border-radius: 10px;
+  border: 2px solid #ffeb3b;
+  background-color: #fff7d1;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #4caf50;
+}
+
+/* Button styling */
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Text box */
+.text-box {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  padding: 0 40px;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-box p {
+  font-size: 24px;
+  color: #fff7d1;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* App logo */
+.App-logo {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
