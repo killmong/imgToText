@@ -193,13 +193,13 @@ button:hover {
 
 @keyframes drive {
   0% {
-    transform: translateX(0px) ,rotateX(180deg); ;
+    transform: translateX(0px) ;
   }
   50% {
-    transform: translateX(750px) ,rotateX(0deg);
+    transform: translateX(750px) ;
   }
   100% {
-    transform: translateX(1800px);
+    transform: translateX(1000px);
   }
 }
 
