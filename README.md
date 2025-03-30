@@ -1,3 +1,5 @@
+
+
 React OCR Image Text Extraction App
 This is a simple React application that extracts text from images using the Tesseract.js OCR (Optical Character Recognition) library. The app allows users to upload an image, extract the text, and download the extracted text as a Word document.
 
@@ -8,7 +10,7 @@ Download as Word Document: After extracting the text, the app allows users to do
 Modern UI: The app features a modern design with smooth transitions, hover effects, and a clean layout using CSS.
 Demo
 You can check out a demo of the app here. (If applicable, add your deployment link here)
-
+https://textextractor-two.vercel.app/
 Technologies Used
 React: Frontend framework
 Tesseract.js: For Optical Character Recognition (OCR) to extract text from images
