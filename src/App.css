@@ -1,213 +1,286 @@
-/* Background styling */
+/* ========== Global / page ========== */
+:root{
+  --bg-1: #0f1724;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.08);
+  --accent: #FF6500;
+  --accent-2: #1E3E62;
+  --muted: rgba(255,255,255,0.72);
+  --success: #22c55e;
+  --danger: #ef4444;
+  --card-radius: 16px;
+  --gap: 18px;
+  --max-width: 880px;
+  font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* page background */
 body {
-  background-color: #8bc6ec;
-  background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   margin: 0;
-  padding: 0;
-}
-
-/* Main app container styling */
-.App {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-}
-
-/* Main card styling */
-.App-main {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 15px;
-  padding: 40px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  max-width: 600px;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Main heading */
-.App-main h3 {
-  font-size: 42px;
-  color: #fff7d1;
-  margin-bottom: 20px;
-  text-decoration: underline;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-}
-
-.App-main h3:hover {
-  color: #ffeb3b;
-}
-
-/* Image styling */
-.App-main img {
-  display: block;
-  margin: 20px auto;
-  width: 80%;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.App-main img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Label styling */
-label {
-  font-size: 20px;
-  color: #ffeb3b;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 10px;
-}
-
-/* Input field */
-input[type="file"] {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0 20px;
-  border-radius: 10px;
-  border: 2px solid #ffeb3b;
-  background-color: #fff7d1;
-  color: #333;
-  font-size: 16px;
-  cursor: pointer;
-  transition: border-color 0.3s ease;
-}
-
-input[type="file"]:hover {
-  border-color: #4caf50;
-}
-
-/* Button styling */
-.success {
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.success:hover {
-  background-color: #388e3c;
-  transform: scale(1.05);
-}
-
-.delete {
-  background-color: #ae1f1fad;
-  color: white;
-  padding: 14px 20px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  background-color: #e6ede6;
-  color: black;
-  transform: scale(1.05);
-}
-
-/* Text box */
-.text-box {
-  display: flex;
   justify-content: center;
-  margin: 30px;
-  padding: 0 40px;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #07102a 0%, #0f1724 60%);
+  color: var(--muted);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 32px;
 }
 
-.text-box p {
-  position: relative;
-  font-size: 24px;
-  color: #fff7d1;
-  line-height: 1.6;
-  text-align: justify;
-}
-
-/* App logo */
-.App-logo {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.github-icon{
-  width: 50px;
-  height: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  animation: spin 4s linear infinite alternate;
-}
-
-.github-icon:hover {
-  transform: scale(1.1);
-}
-
-
-.dog-container{
-  width: 50px;
-  height: 50px;
-}
-
-.dog-container img{
+/* app wrapper */
+.App {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: var(--max-width);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 28px;
+  align-items: start;
+  padding: 24px;
 }
 
-.dog-animation{
-  position: relative;
-  top: 0px;
-  left: 0px;
-  animation-name: drive;
-  animation-duration: 4s;
-  animation-fill-mode: both;
-  animation-iteration-count: 1;
+/* mobile / small */
+@media (max-width: 900px){
+  .App { grid-template-columns: 1fr; padding: 16px; }
 }
 
-@keyframes drive {
-  0% {
-    transform: translateX(0px) ;
-  }
-  50% {
-    transform: translateX(750px) ;
-  }
-  100% {
-    transform: translateX(1000px);
-  }
+/* left card - controls */
+.App-main {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius: var(--card-radius);
+  padding: 28px;
+  box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+  transition: transform .18s ease, box-shadow .18s ease;
+  min-height: 320px;
 }
 
-@keyframes spin {
-  0% {
-    transform:rotateX('0deg');
-  }
-  100% {
-    transform: rotateX(90deg);
-  }
+/* subtle lift on hover */
+.App-main:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(2,6,23,0.7);
 }
+
+/* header */
+.App-main h3 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  font-weight: 600;
+}
+.App-main p.lead {
+  margin: 0 0 18px 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 13.5px;
+}
+
+/* file area */
+.file-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: var(--gap);
+}
+
+/* styled file input wrapper */
+.file-field {
+  background: var(--glass);
+  border-radius: 12px;
+  padding: 8px 12px;
+  border: 1px dashed rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+}
+
+/* native input hidden, label styled */
+.file-field input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+.file-placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  overflow: hidden;
+}
+.file-placeholder .title {
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.file-placeholder .sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* upload button (opens native file dialog) */
+.btn-upload {
+  background: linear-gradient(90deg, var(--accent), #ff8a42);
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255,101,0,0.15);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s;
+}
+.btn-upload:active { transform: translateY(1px); }
+.btn-upload[disabled] { opacity: .6; cursor: not-allowed; }
+
+/* preview (left column) */
+.preview {
+  margin-top: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+}
+.preview img {
+  width: 100%;
+  display: block;
+  height: auto;
+  max-height: 360px;
+  object-fit: contain;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+}
+
+/* action buttons row */
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+.btn {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.88);
+}
+.btn.primary {
+  background: linear-gradient(90deg, #2978f2, #7b61ff);
+  color: white;
+  box-shadow: 0 8px 22px rgba(43,92,255,0.12);
+}
+.btn.destructive {
+  background: linear-gradient(90deg, #ff6b6b, #ef4444);
+  color: white;
+  box-shadow: 0 8px 22px rgba(239,68,68,0.12);
+}
+
+/* right column: extracted text card */
+.text-box {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius: var(--card-radius);
+  padding: 22px;
+  min-height: 320px;
+  box-shadow: 0 6px 28px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+/* header of text-box */
+.text-box .meta {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.text-box h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.text-box .meta small {
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+}
+
+/* extracted text area */
+.extracted {
+  flex: 1;
+  background: rgba(0,0,0,0.18);
+  border-radius: 10px;
+  padding: 14px;
+  color: rgba(255,255,255,0.92);
+  font-size: 15px;
+  line-height: 1.55;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+/* animated dog / success badge */
+.dog-container {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.dog-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg,#fff,#f7f7f7);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transform-origin: center;
+  animation: float 2.8s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px) rotate(-2deg); }
+  100% { transform: translateY(0); }
+}
+
+/* utility row for save/delete */
+.row-utility {
+  display:flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.small {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* github icon position */
+.github-icon {
+  position: fixed;
+  right: 22px;
+  top: 18px;
+  width: 42px;
+  height: 42px;
+  color: white;
+  opacity: 0.9;
+  transition: transform .18s ease, opacity .12s;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 8px;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.github-icon:hover { transform: scale(1.06); opacity: 1; }
